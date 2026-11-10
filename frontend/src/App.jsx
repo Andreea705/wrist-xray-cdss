@@ -1,14 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Login from "./Login";
+import Home from "./Home";
 
 export default function App() {
-  const [status, setStatus] = useState("loading...");
+  const [token, setToken] = useState(localStorage.getItem("token"));
 
-  useEffect(() => {
-    fetch("http://localhost:8000/health")
-      .then((r) => r.json())
-      .then((d) => setStatus(d.status))
-      .catch(() => setStatus("backend not reachable"));
-  }, []);
+  function handleLogin(t) {
+    localStorage.setItem("token", t);
+    setToken(t);
+  }
 
-  return <h1>Backend status: {status}</h1>;
+  function handleLogout() {
+    localStorage.removeItem("token");
+    setToken(null);
+  }
+
+  return token ? (
+    <Home token={token} onLogout={handleLogout} />
+  ) : (
+    <Login onLogin={handleLogin} />
+  );
 }

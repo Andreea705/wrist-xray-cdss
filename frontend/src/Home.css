@@ -1,0 +1,19 @@
+.dash { max-width: 1000px; margin: 40px auto; padding: 0 20px; text-align: left; }
+.dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.dash-header h1 { margin: 0; font-size: 1.6rem; }
+.dash-header p { margin: 4px 0 0; opacity: 0.7; }
+
+.dash-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.stat { border: 1px solid #555; border-radius: 12px; padding: 16px; opacity: 0.95; }
+.stat span { display: block; font-size: 2rem; font-weight: 600; }
+
+.dash-table { width: 100%; border-collapse: collapse; }
+.dash-table th, .dash-table td { padding: 10px 8px; border-bottom: 1px solid #444; text-align: left; }
+
+.badge { padding: 3px 10px; border-radius: 999px; font-size: 0.85rem; }
+.badge.waiting { background: #7c5a10; color: #fff; }
+.badge.imaged { background: #1e4f8a; color: #fff; }
+.badge.reported { background: #1f6b3a; color: #fff; }
+
+.dash-loading, .dash-error { text-align: center; margin-top: 80px; }
+.dash-error { color: crimson; }
